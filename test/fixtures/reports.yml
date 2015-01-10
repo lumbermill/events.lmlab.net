@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 1
+  short_desc: MyString
+  long_desc: MyText
+  picture_1: 
+  picture_2: 
+  picture_3: 
+  visible: false
+
+two:
+  event_id: 1
+  short_desc: MyString
+  long_desc: MyText
+  picture_1: 
+  picture_2: 
+  picture_3: 
+  visible: false

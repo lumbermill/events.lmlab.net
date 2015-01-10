@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @report.event_id %>
+</p>
+
+<p>
+  <strong>Short desc:</strong>
+  <%= @report.short_desc %>
+</p>
+
+<p>
+  <strong>Long desc:</strong>
+  <%= @report.long_desc %>
+</p>
+
+<p>
+  <strong>Picture 1:</strong>
+  <%= @report.picture_1 %>
+</p>
+
+<p>
+  <strong>Picture 2:</strong>
+  <%= @report.picture_2 %>
+</p>
+
+<p>
+  <strong>Picture 3:</strong>
+  <%= @report.picture_3 %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @report.visible %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
