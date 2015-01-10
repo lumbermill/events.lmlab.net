@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EventsLmlabAsia</title>
+  <title>LumberMill's Events</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="description" content=""/>
+  <meta name="keywords" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="fb-root"></div>
+  <script>
+  ( function(d, s, id) {
+    var js,
+    fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id))
+      return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1471100926452630&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div class="container">
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+    <footer class="footer">
+      <a href="http://www.lumber-mill.co.jp/notes/">LumberMill, Inc.</a>
+    </footer>
+  </div>
 </body>
 </html>

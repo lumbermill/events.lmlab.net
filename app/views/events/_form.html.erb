@@ -1,0 +1,93 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :opendate %><br>
+    <%= f.date_select :opendate %>
+  </div>
+  <div class="field">
+    <%= f.label :opendate_memo %><br>
+    <%= f.text_field :opendate_memo %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :postal %><br>
+    <%= f.text_field :postal %>
+  </div>
+  <div class="field">
+    <%= f.label :address_embed %><br>
+    <%= f.text_field :address_embed %>
+  </div>
+  <div class="field">
+    <%= f.label :fee %><br>
+    <%= f.number_field :fee %>
+  </div>
+  <div class="field">
+    <%= f.label :limit %><br>
+    <%= f.number_field :limit %>
+  </div>
+  <div class="field">
+    <%= f.label :desc_short %><br>
+    <%= f.text_field :desc_short %>
+  </div>
+  <div class="field">
+    <%= f.label :desc_long %><br>
+    <%= f.text_area :desc_long %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_main %><br>
+    <%= f.text_field :picture_main %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_1 %><br>
+    <%= f.text_field :picture_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_2 %><br>
+    <%= f.text_field :picture_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_3 %><br>
+    <%= f.text_field :picture_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :url_facebook %><br>
+    <%= f.text_field :url_facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :url_twitter %><br>
+    <%= f.text_field :url_twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :visible %><br>
+    <%= f.check_box :visible %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

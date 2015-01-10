@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @event.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Opendate:</strong>
+  <%= @event.opendate %>
+</p>
+
+<p>
+  <strong>Opendate memo:</strong>
+  <%= @event.opendate_memo %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @event.address %>
+</p>
+
+<p>
+  <strong>Postal:</strong>
+  <%= @event.postal %>
+</p>
+
+<p>
+  <strong>Address embed:</strong>
+  <%= @event.address_embed %>
+</p>
+
+<p>
+  <strong>Fee:</strong>
+  <%= @event.fee %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @event.limit %>
+</p>
+
+<p>
+  <strong>Desc short:</strong>
+  <%= @event.desc_short %>
+</p>
+
+<p>
+  <strong>Desc long:</strong>
+  <%= @event.desc_long %>
+</p>
+
+<p>
+  <strong>Picture main:</strong>
+  <%= @event.picture_main %>
+</p>
+
+<p>
+  <strong>Picture 1:</strong>
+  <%= @event.picture_1 %>
+</p>
+
+<p>
+  <strong>Picture 2:</strong>
+  <%= @event.picture_2 %>
+</p>
+
+<p>
+  <strong>Picture 3:</strong>
+  <%= @event.picture_3 %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @event.url %>
+</p>
+
+<p>
+  <strong>Url facebook:</strong>
+  <%= @event.url_facebook %>
+</p>
+
+<p>
+  <strong>Url twitter:</strong>
+  <%= @event.url_twitter %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @event.visible %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

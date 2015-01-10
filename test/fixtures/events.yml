@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  title: MyString
+  opendate: 2015-01-09
+  opendate_memo: MyString
+  address: MyString
+  postal: MyString
+  address_embed: MyString
+  fee: 1
+  limit: 1
+  desc_short: MyString
+  desc_long: MyText
+  picture_main: 
+  picture_1: 
+  picture_2: 
+  picture_3: 
+  url: MyString
+  url_facebook: MyString
+  url_twitter: MyString
+  visible: false
+
+two:
+  user_id: 1
+  title: MyString
+  opendate: 2015-01-09
+  opendate_memo: MyString
+  address: MyString
+  postal: MyString
+  address_embed: MyString
+  fee: 1
+  limit: 1
+  desc_short: MyString
+  desc_long: MyText
+  picture_main: 
+  picture_1: 
+  picture_2: 
+  picture_3: 
+  url: MyString
+  url_facebook: MyString
+  url_twitter: MyString
+  visible: false
