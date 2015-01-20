@@ -36,9 +36,9 @@ env = ARGV[0] || ""
 init = ARGV[1] == "init"
 puts "Running with RAILS_ENV=#{env}"
 if env == "test"
-  deploy("dev.events.lmlab.asia",env,init)
+  deploy("events.t.lmlab.net",env,init)
 elsif env == "production"
-  deploy("www.events.lmlab.asia",env,init)
+  deploy("events.lmlab.net",env,init)
 else
   puts "USAGE: ./lib/tasks/deploy.rb (test|production) [init]";
 end

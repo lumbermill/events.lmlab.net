@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: events_lmlab_asia_production
-  username: events_lmlab_asia
-  password: <%= ENV['EVENTS_LMLAB_ASIA_DATABASE_PASSWORD'] %>
+  #username: events_lmlab_asia
+  #password: <%= ENV['EVENTS_LMLAB_ASIA_DATABASE_PASSWORD'] %>

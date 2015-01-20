@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109225810) do
+ActiveRecord::Schema.define(version: 20150110075930) do
 
   create_table "events", force: true do |t|
     t.integer  "user_id"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20150109225810) do
     t.string   "url"
     t.string   "url_facebook"
     t.string   "url_twitter"
+    t.boolean  "visible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.integer  "event_id"
+    t.string   "short_desc"
+    t.text     "long_desc"
+    t.binary   "picture_1",  limit: 16777215
+    t.binary   "picture_2",  limit: 16777215
+    t.binary   "picture_3",  limit: 16777215
     t.boolean  "visible"
     t.datetime "created_at"
     t.datetime "updated_at"
