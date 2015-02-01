@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :reports
-  
-  root 'events#root'
+
+  root 'events#root' # What's the difference between "root" and "root to:""??
 
 end
