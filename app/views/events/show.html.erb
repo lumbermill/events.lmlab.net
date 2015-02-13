@@ -1,99 +1,52 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Opendate:</strong>
-  <%= @event.opendate %>
-</p>
-
-<p>
-  <strong>Opendate memo:</strong>
-  <%= @event.opendate_memo %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<p>
-  <strong>Postal:</strong>
-  <%= @event.postal %>
-</p>
-
-<p>
-  <strong>Address embed:</strong>
-  <%= @event.address_embed %>
-</p>
-
-<p>
-  <strong>Fee:</strong>
-  <%= @event.fee %>
-</p>
-
-<p>
-  <strong>Limit:</strong>
-  <%= @event.limit %>
-</p>
-
-<p>
-  <strong>Desc short:</strong>
-  <%= @event.desc_short %>
-</p>
-
-<p>
-  <strong>Desc long:</strong>
-  <%= @event.desc_long %>
-</p>
-
-<p>
-  <strong>Picture main:</strong>
-  <%= @event.picture_main %>
-</p>
-
-<p>
-  <strong>Picture 1:</strong>
-  <%= @event.picture_1 %>
-</p>
-
-<p>
-  <strong>Picture 2:</strong>
-  <%= @event.picture_2 %>
-</p>
-
-<p>
-  <strong>Picture 3:</strong>
-  <%= @event.picture_3 %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @event.url %>
-</p>
-
-<p>
-  <strong>Url facebook:</strong>
-  <%= @event.url_facebook %>
-</p>
-
-<p>
-  <strong>Url twitter:</strong>
-  <%= @event.url_twitter %>
-</p>
-
-<p>
-  <strong>Visible:</strong>
-  <%= @event.visible %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h1><%= @event.title %></h1>
+<div class="row">
+<table class="table col-md-6">
+  <tr>
+    <th>主催者</th>
+    <td><%= link_to @event.user.name, "#" %></td>
+  </tr>
+  <tr>
+    <th>日時</th>
+    <td><%= @event.opendate %> <%= @event.opendate_memo %></td>
+  </tr>
+  <tr>
+    <th>場所</th>
+    <td><%= @event.address %></td>
+  </tr>
+  <tr>
+    <th>参加費</th>
+    <td><%= @event.fee %></td>
+  </tr>
+  <tr>
+    <th>定員</th>
+    <td><%= @event.limit %></td>
+  </tr>
+  <tr>
+    <th>概要</th>
+    <td><%= @event.desc_short %></td>
+  </tr>
+  <tr>
+    <th>URL</th>
+    <td>
+      <%= (link_to @event.url) if @event.url %>
+      <%= @event.url_facebook %>
+      <%= @event.url_twitter %>
+    </td>
+  </tr>
+</table>
+<div class="col-md-6">
+  <p>
+    <%= @event.desc_long %>
+  </p>
+  <%= image_tag events_picture_path(@event.id), class: "img-rounded" %>
+</div>
+</div>
+<hr/>
+<% if user_signed_in? && current_user.id == @event.user_id %>
+<div class="row">
+  <div class="col-md-12">
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-default" %>
+<%= link_to 'Back', events_path, class: "btn btn-default" %>
+</div>
+</div>
+<% end %>

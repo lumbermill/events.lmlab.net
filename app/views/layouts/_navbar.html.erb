@@ -11,6 +11,14 @@
 			<%= link_to "<span class='glyphicon glyphicon-calendar'></span> LM Events".html_safe, root_path, class: "navbar-brand" %>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+					<li><%= link_to 'Home', events_path %></li>
+				<% else %>
+					<li><%= link_to 'Sign up', new_user_registration_path %></li>
+					<li><%= link_to 'Log in', events_path %></li>
+				<% end %>
+			</ul>
 		</div><!--/.nav-collapse -->
 	</div><!--/.container-fluid -->
 </nav>

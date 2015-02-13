@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :show_picture]
+  before_action :authenticate_user!, except: [:root, :show, :show_picture]
 
   respond_to :html
 
@@ -9,8 +10,10 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
-    respond_with(@events)
+    # Use for user home
+    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate")
+    @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate DESC")
+    respond_with(@upcomings,@ends)
   end
 
   def show
@@ -19,10 +22,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.user_id = current_user.id
     respond_with(@event)
   end
 
   def edit
+    if current_user.id != @event.user_id
+      raise ActionController::RoutingError.new('This event is not yours.')
+    end
   end
 
   def create
@@ -39,6 +46,14 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_with(@event)
+  end
+
+  def show_picture
+    if @event.picture_main
+      send_data @event.picture_main, :type => 'image/jpeg', :disposition => "inline"
+    else
+      raise ActionController::RoutingError.new('Picture of '+@event.title+"' not found")
+    end
   end
 
   private
