@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :show_picture]
-  before_action :authenticate_user!, except: [:root, :show, :show_picture]
+  before_action :authenticate_user!, except: [:root, :show, :show_picture, :index_by_user]
 
   respond_to :html
 
@@ -14,6 +14,10 @@ class EventsController < ApplicationController
     @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate")
     @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate DESC")
     respond_with(@upcomings,@ends)
+  end
+
+  def index_by_user
+    @upcomings = User.find(params[:id]).events
   end
 
   def show

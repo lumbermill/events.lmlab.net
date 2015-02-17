@@ -3,7 +3,7 @@
 <table class="table col-md-6">
   <tr>
     <th>主催者</th>
-    <td><%= link_to @event.user.name, "#" %></td>
+    <td><%= link_to @event.user.name, events_by_path(@event.user.id) %></td>
   </tr>
   <tr>
     <th>日時</th>
