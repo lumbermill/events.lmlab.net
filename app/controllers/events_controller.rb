@@ -53,10 +53,12 @@ class EventsController < ApplicationController
   end
 
   def show_picture
-    if @event.picture_main
-      send_data @event.picture_main, :type => 'image/jpeg', :disposition => "inline"
+    n = "picture_"+ (params["name"] || "main")
+    d = @event.send(n)
+    if d
+      send_data d, :type => 'image/jpeg', :disposition => "inline"
     else
-      raise ActionController::RoutingError.new('Picture of '+@event.title+"' not found")
+      raise ActionController::RoutingError.new('Picture of '+@event.title+' '+n+' not found')
     end
   end
 

@@ -7,11 +7,33 @@ body {
   margin-bottom: 20px;
 }
 
+.alert {
+  box-shadow: none;
+}
+
 footer.footer {
   margin: auto;
   text-align: center;
+  clear: both;
 }
 
 footer.footer a{
   color: darkgray;
+}
+
+div.event{
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #ccc;
+  margin-bottom: 64px;
+  border-radius: 6px;
+}
+
+div.event img{
+  width: 100%;
+  margin-bottom: 6px;
+  border-radius: 6px 6px 0 0;
+}
+
+div.event-detail img{
+  width: 100%;
 }

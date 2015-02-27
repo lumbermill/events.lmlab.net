@@ -1,28 +1,23 @@
-<h1>Listing events</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Opendate</th>
-      <th>Visible</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="row">
     <% @events.each do |event| %>
-      <tr>
-        <td><%= event.user_id %></td>
-        <td><%= link_to event.title, event %></td>
-        <td><%= event.opendate %></td>
-        <td><%= event.visible %></td>
-      </tr>
+      <div class="col-md-4">
+        <div class="event">
+          <%= image_tag events_picture_path(event.id,"main") %>
+          <br/>
+          <strong><%= link_to event.title, event %></strong><br/>
+          <span>開催日:</span> <%= event.opendate %><br/>
+          <span>Hosted by:</span> <%= event.user.name %><br/>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-<p>
-<%= link_to 'Log in', events_path, class: "btn btn-default" %>
-<%= link_to 'Sign up', events_path, class: "btn btn-default" %>
-</p>
+
+</div>
+<div id="row">
+  <div class="col-md-12">
+    <p>Want to post your own event?</p>
+    <p>
+    <%= link_to 'Log in', events_path, class: "btn btn-default" %>
+    <%= link_to 'Sign up', events_path, class: "btn btn-default" %>
+    </p>
+  </div>
+</div>

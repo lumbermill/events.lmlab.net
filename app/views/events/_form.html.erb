@@ -11,83 +11,84 @@
     </div>
   <% end %>
 
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :user_id %>
+    <%= @event.user.name %>
     <%= f.hidden_field :user_id %>
   </div>
   <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :opendate %><br>
-    <%= f.date_select :opendate %>
+    <%= f.label :opendate %>
+    <%= f.date_field :opendate, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :opendate_memo %><br>
-    <%= f.text_field :opendate_memo %>
+    <%= f.label :opendate_memo %>
+    <%= f.text_field :opendate_memo, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :postal %><br>
-    <%= f.text_field :postal %>
+    <%= f.label :postal %>
+    <%= f.text_field :postal, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :address_embed %><br>
-    <%= f.text_field :address_embed %>
+    <%= f.label :address_embed %>
+    <%= f.text_field :address_embed, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :fee %><br>
-    <%= f.number_field :fee %>
+    <%= f.label :fee %>
+    <%= f.number_field :fee, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :limit %><br>
-    <%= f.number_field :limit %>
+    <%= f.label :limit %>
+    <%= f.number_field :limit, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :desc_short %><br>
-    <%= f.text_field :desc_short %>
+    <%= f.label :desc_short %>
+    <%= f.text_field :desc_short, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :desc_long %><br>
-    <%= f.text_area :desc_long %>
+    <%= f.label :desc_long %>
+    <%= f.text_area :desc_long, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_main %><br>
-    <%= f.text_field :picture_main %>
+    <%= f.label :picture_main %>
+    <%= f.file_field :picture_main, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_1 %><br>
-    <%= f.text_field :picture_1 %>
+    <%= f.label :picture_1 %>
+    <%= f.file_field :picture_1, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_2 %><br>
-    <%= f.text_field :picture_2 %>
+    <%= f.label :picture_2 %>
+    <%= f.file_field :picture_2, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :picture_3 %><br>
-    <%= f.text_field :picture_3 %>
+    <%= f.label :picture_3 %>
+    <%= f.file_field :picture_3, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.label :url %>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url_facebook %><br>
-    <%= f.text_field :url_facebook %>
+    <%= f.label :url_facebook %>
+    <%= f.text_field :url_facebook, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :url_twitter %><br>
-    <%= f.text_field :url_twitter %>
+    <%= f.label :url_twitter %>
+    <%= f.text_field :url_twitter, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :visible %><br>
-    <%= f.check_box :visible %>
+    <%= f.label :visible %>
+    <%= f.check_box :visible, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil,class: "btn btn-primary" %>
   </div>
 <% end %>
