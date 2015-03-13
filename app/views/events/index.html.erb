@@ -1,12 +1,11 @@
-<h1>Listing events</h1>
-<p>You are logged in as <%= current_user.name %>.
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
+<p>ようこそ <%= current_user.name %> さん
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete  %>
 </p>
 <p>
-  <%= link_to 'New Event', new_event_path, class: "btn btn-primary" %>
-  <%= link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default" %>
+  <%= link_to '新しいイベントを登録する', new_event_path, class: "btn btn-primary" %>
+  <%= link_to 'ユーザ情報を変更する', edit_user_registration_path, class: "btn btn-default" %>
 </p>
-<h3>Upcoming</h3>
+<h3>未開催</h3>
 <table class="table">
   <thead>
     <tr>
@@ -33,7 +32,7 @@
   </tbody>
 </table>
 
-<h3>Ended</h3>
+<h3>開催済み</h3>
 
 <table class="table">
   <thead>

@@ -4,6 +4,7 @@ ja:
   helpers:
     label:
       user:
+        name: '氏名'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
