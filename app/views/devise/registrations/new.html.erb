@@ -1,5 +1,4 @@
 <h2>ユーザ登録</h2>
-<%= t("hello") %>
 <div class="row">
   <div class="col-md-6">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,7 +12,7 @@
   <div class="form-group">
     <%= f.label :password %>
     <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
   </div>

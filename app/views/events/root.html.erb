@@ -1,23 +1,18 @@
-<div id="row">
+<div class="row">
     <% @events.each do |event| %>
-      <div class="col-md-4">
-        <div class="event">
-          <%= image_tag events_picture_path(event.id,"main") %>
-          <br/>
-          <strong><%= link_to event.title, event %></strong><br/>
-          <span>開催日:</span> <%= event.opendate %><br/>
-          <span>主催者:</span> <%= event.user.name %><br/>
-        </div>
-      </div>
+      <%= render partial: 'event', locals: {event: event} %>
     <% end %>
-
 </div>
-<div id="row">
-  <div class="col-md-12">
-    <p>Want to post your own event?</p>
+<div class="row">
+  <div class="col-md-6">
+    <h2>このサイトについて</h2>
+    <p>「LM Events」では、シンプルなイベント告知ページを作ることができます。</p>
+    <p>Ruby on Railsの勉強会の習作をそのまま公開しています。
+      ユーザ登録してイベント告知に使って頂くもよし、GitHubのソースコードをフォークして独自のサイト作りに役立てて頂いても構いません。
+      規約やライセンスは設けていませんが、良識のある利用をお願い致します（不適切と判断した投稿は予告なく削除することがあります）。
+      </p>
     <p>
-    <%= link_to 'Log in', events_path, class: "btn btn-default" %>
-    <%= link_to 'Sign up', events_path, class: "btn btn-default" %>
+    <a href="https://github.com/yosei/events.lmlab.net">https://github.com/yosei/events.lmlab.net</a>
     </p>
   </div>
 </div>

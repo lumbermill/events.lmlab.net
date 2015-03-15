@@ -5,19 +5,22 @@ class EventsController < ApplicationController
   respond_to :html
 
   def root
-    @events = Event.all
+    @events = Event.where("opendate >= ?",Date.today.to_s).order("opendate").limit(12)
     respond_with(@events)
   end
 
   def index
     # Use for user home
-    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate")
+    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate ASC")
     @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate DESC")
     respond_with(@upcomings,@ends)
   end
 
   def index_by_user
-    @upcomings = User.find(params[:id]).events
+    @user = User.find(params[:id])
+    raise ActionController::RoutingError.new('User not found.') unless @user
+    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,@user.id).order("opendate ASC")
+    @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,@user.id).order("opendate DESC")
   end
 
   def show

@@ -9,3 +9,16 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
         current_password: '現在のパスワード'
+        remember_me: 'ログイン状態を記憶する'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'このアドレスは既に登録されています。'
+            current_password:
+              blank: '現在のパスワードを入力してください。'
+              invalid: '現在のパスワードが正しくありません。'
+            password_confirmation:
+              confirmation: 'パスワードの入力が一致しません。'

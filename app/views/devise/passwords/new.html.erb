@@ -1,16 +1,17 @@
-<h2>Forgot your password?</h2>
+<h2>パスワードをお忘れですか？</h2>
+<p>このサイトの登録に使用したメールアドレス宛にパスワード変更手順の案内をお送りします。</p>
 <div class="row">
   <div class="col-md-6">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+    <%= f.submit "メールを送信する", class: "btn btn-primary" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>

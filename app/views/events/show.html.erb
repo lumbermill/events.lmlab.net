@@ -1,25 +1,25 @@
 <h1><%= @event.title %></h1>
-<div class="row">
+<div class="row event-detail">
   <div class="col-md-6">
     <table class="table">
-        <tr>
-      <th>主催者</th>
-      <td><%= link_to @event.user.name, events_by_path(@event.user.id) %></td>
+    <tr>
+      <th><span class="glyphicon glyphicon-time"></span> 日時</th>
+      <td><%= @event.opendate_short %></td>
     </tr>
     <tr>
-      <th>日時</th>
-      <td><%= @event.opendate %> <%= @event.opendate_memo %></td>
-    </tr>
-    <tr>
-      <th>場所</th>
+      <th><span class="glyphicon glyphicon-map-marker"></span> 場所</th>
       <td><%= @event.address %></td>
     </tr>
     <tr>
-      <th>参加費</th>
+      <th><span class="glyphicon glyphicon-user"></span> 主催者</th>
+      <td><%= link_to @event.user.name, events_by_path(@event.user.id) %></td>
+    </tr>
+    <tr>
+      <th><span class="glyphicon glyphicon-yen"></span> 参加費</th>
       <td><%= @event.fee %></td>
     </tr>
     <tr>
-      <th>定員</th>
+      <th><span class="glyphicon glyphicon-plus"></span> 定員</th>
       <td><%= @event.limit %></td>
     </tr>
     <tr>
@@ -36,18 +36,18 @@
     </tr>
   </table>
 </div>
-<div class="col-md-6">
-  <p>
-    <%= @event.desc_long %>
-  </p>
+<div class="col-md-3">
+<%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
+</div>
+<div class="col-md-3">
+  <%= image_tag events_picture_path(@event.id,"1"), class: "img-rounded" %>
 </div>
 </div>
 <div class="row event-detail">
-  <div class="col-md-3">
-  <%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
-  </div>
-  <div class="col-md-3">
-    <%= image_tag events_picture_path(@event.id,"1"), class: "img-rounded" %>
+  <div class="col-md-6">
+    <p>
+      <%= @event.desc_long %>
+    </p>
   </div>
   <div class="col-md-3">
     <%= image_tag events_picture_path(@event.id,"2"), class: "img-rounded" %>

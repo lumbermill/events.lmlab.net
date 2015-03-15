@@ -1,4 +1,4 @@
-<h2>編集 <%= resource_name.to_s.humanize %></h2>
+<h2>プロフィールの編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -33,7 +33,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-primary" %>
+    <%= f.submit "更新する", class: "btn btn-primary" %>
   </div>
 <% end %>
 
@@ -41,6 +41,6 @@
 <p>この操作は取り消しができません。
   登録済みのイベント情報で編集や削除が必要なものは予め全て更新を済ませてください。
   ユーザ情報削除後は一切編集することができません。</p>
-<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+<p><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete, class: "btn btn-danger" %></p>
 
 <%= link_to "戻る", :back %>

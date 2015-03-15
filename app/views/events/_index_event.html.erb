@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>開催日</th>
+      <th>場所</th>
+      <th>タイトル</th>
+      <th>参加費</th>
+      <th>定員</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% events.each do |event| %>
+    <tr>
+      <td><%= event.opendate_short %></td>
+      <td><%= event.address_title %></td>
+      <td><%= event.title %></td>
+      <td><%= event.fee %></td>
+      <td><%= event.limit %></td>
+      <td><%= link_to '閲覧', event %></td>
+      <td><%= link_to '編集', edit_event_path(event) %></td>
+      <td><%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
+      <td><%= link_to '複製', edit_event_path(event) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
