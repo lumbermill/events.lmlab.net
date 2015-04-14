@@ -70,7 +70,21 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def adjust_image(b)
+      require 'RMagick'
+      i = Magick::Image.from_blob(b.read)[0]
+      if i.columns > 1024
+        return i.resize(0.5).to_blob
+      else
+        return i.to_blob
+      end
+    end
+
     def event_params
-      params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address, :postal, :address_embed, :fee, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible)
+      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible)
+      [:picture_main,:picture_1,:picture_2,:picture_3].each do |k|
+        p[k] = adjust_image(p[k]) if p[k]
+      end
+      return p
     end
 end

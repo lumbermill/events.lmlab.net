@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  validates :title, presence: true
+  validates :opendate, presence: true
+  validates :address_title, presence: true
 
   def opendate_short
     if opendate.year == Date.today.year
