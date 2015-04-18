@@ -8,7 +8,9 @@
     </tr>
     <tr>
       <th><span class="glyphicon glyphicon-map-marker"></span> 場所</th>
-      <td><%= @event.address %></td>
+      <td><%= @event.address_title %><br/>
+      <small><%= @event.postal + " " + @event.address %></small>
+      </td>
     </tr>
     <tr>
       <th><span class="glyphicon glyphicon-user"></span> 主催者</th>
@@ -16,11 +18,11 @@
     </tr>
     <tr>
       <th><span class="glyphicon glyphicon-yen"></span> 参加費</th>
-      <td><%= @event.fee %></td>
+      <td><%= @event.fee %>円<br/><small><%= @event.fee_memo %></small></td>
     </tr>
     <tr>
       <th><span class="glyphicon glyphicon-plus"></span> 定員</th>
-      <td><%= @event.limit %></td>
+      <td><%= @event.limit %>名</td>
     </tr>
     <tr>
       <th>概要</th>
@@ -29,9 +31,13 @@
     <tr>
       <th>URL</th>
       <td>
-        <%= (link_to @event.url) if @event.url %>
-        <%= @event.url_facebook %>
-        <%= @event.url_twitter %>
+        <%= (link_to @event.url) if @event.url %><br/>
+        <%
+        f = image_tag '/images/facebook.png', class: "icon"
+        t = image_tag '/images/twitter.png', class: "icon"
+        %>
+        <%= link_to f, @event.url_facebook if @event.url_facebook.present? %>
+        <%= link_to t, @event.url_twitter if @event.url_twitter.present? %>
       </td>
     </tr>
   </table>
@@ -40,7 +46,7 @@
 <%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
 </div>
 <div class="col-md-3">
-  <%= image_tag events_picture_path(@event.id,"1"), class: "img-rounded" %>
+  <%= (image_tag events_picture_path(@event.id,"1"), class: "img-rounded") if @event.picture_1 %>
 </div>
 </div>
 <div class="row event-detail">
@@ -50,10 +56,10 @@
     </p>
   </div>
   <div class="col-md-3">
-    <%= image_tag events_picture_path(@event.id,"2"), class: "img-rounded" %>
+    <%= (image_tag events_picture_path(@event.id,"2"), class: "img-rounded") if @event.picture_2 %>
   </div>
   <div class="col-md-3">
-    <%= image_tag events_picture_path(@event.id,"3"), class: "img-rounded" %>
+    <%= (image_tag events_picture_path(@event.id,"3"), class: "img-rounded") if @event.picture_3 %>
   </div>
 </div>
 
@@ -61,8 +67,8 @@
 <% if user_signed_in? && current_user.id == @event.user_id %>
 <div class="row">
   <div class="col-md-12">
-<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-default" %>
-<%= link_to 'Back', events_path, class: "btn btn-default" %>
-</div>
+    <%= link_to '編集', edit_event_path(@event), class: "btn btn-default" %>
+    <%= link_to '一覧に戻る', events_path, class: "btn btn-default" %>
+  </div>
 </div>
 <% end %>

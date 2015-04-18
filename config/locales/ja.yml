@@ -22,3 +22,11 @@ ja:
               invalid: '現在のパスワードが正しくありません。'
             password_confirmation:
               confirmation: 'パスワードの入力が一致しません。'
+        event:
+          attributes:
+            title:
+              blank: '表題を入力してください。'
+            opendate:
+              blank: '日時を設定してください。'
+            address_title:
+              blank: '場所を入力してください。'

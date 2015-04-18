@@ -1,13 +1,13 @@
 <h1><%= @user.name %> 主催のイベント</h1>
 <h3>近日開催</h3>
 <div class="row">
-    <% @upcomings.each do |event| %>
-      <%= render partial: 'event', locals: {event: event} %>
-    <% end %>
+  <% @upcomings.each do |event| %>
+    <%= render partial: 'event', locals: {event: event} %>
+  <% end %>
 </div>
-<div class="row">
 <h3>開催済み</h3>
-<% @ends.each do |event| %>
-  <%= render partial: 'event', locals: {event: event} %>
-<% end %>
+<div class="row">
+  <% @ends.each do |event| %>
+    <%= render partial: 'event', locals: {event: event} %>
+    <% end %>
 </div>

@@ -3,7 +3,7 @@
     <h3><%= link_to event.title, event %></h3>
     <p>
       <span class="glyphicon glyphicon-time" title="開催日"></span> <%= event.opendate_short %><br/>
-      <span class="glyphicon glyphicon-map-marker" title="場所"></span> <%= event.address %><br/>
+      <span class="glyphicon glyphicon-map-marker" title="場所"></span> <%= event.address_title %><br/>
       <span class="glyphicon glyphicon-user" title="主催者"></span> <%= link_to event.user.name,events_by_path(event.user) %>
     </p>
     <%= image_tag events_picture_path(event.id,"main") %>

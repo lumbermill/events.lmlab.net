@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :opendate, presence: true
   validates :address_title, presence: true
+  validates :picture_main, presence: true
 
   def opendate_short
     if opendate.year == Date.today.year

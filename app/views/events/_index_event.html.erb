@@ -20,7 +20,7 @@
       <td><%= link_to '閲覧', event %></td>
       <td><%= link_to '編集', edit_event_path(event) %></td>
       <td><%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
-      <td><%= link_to '複製', edit_event_path(event) %></td>
+      <td><%= link_to '複製', dup_event_path(event) %></td>
     </tr>
     <% end %>
   </tbody>

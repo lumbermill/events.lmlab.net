@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>開催済み</h2>
+  </div>
+  <div class="col-md-6 text-right">
+    <%= link_to 'トップページ', root_path, class: 'btn btn-default' %>
+  </div>
+</div>
+<div class="row">
+    <% @ends.each do |event| %>
+      <%= render partial: 'event', locals: {event: event} %>
+    <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <%= link_to 'トップページ', root_path, class: 'btn btn-default' %>
+  </div>
+</div>

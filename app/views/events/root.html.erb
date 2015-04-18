@@ -1,7 +1,22 @@
 <div class="row">
+  <% if @events.empty? %>
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          開催予定のイベントはありません。
+        </div>
+      </div>
+    </div>
+  <% else %>
     <% @events.each do |event| %>
       <%= render partial: 'event', locals: {event: event} %>
     <% end %>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <%= link_to '開催済み', events_pasts_path, class: 'btn btn-default' %>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-6">

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get 'events/:id/picture/:name' => 'events#show_picture', as: 'events_picture'
   get 'events_by/:id' => 'events#index_by_user', as: 'events_by'
+  get 'events_pasts' => 'events#pasts', as: 'events_pasts'
+  get 'events/:id/dup' => 'events#duplicate', as: 'dup_event'
 end

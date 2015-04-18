@@ -1,6 +1,4 @@
-<div class="row">
-  <div class="col-md-6">
-<%= form_for(@event) do |f| %>
+<% f = @f %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -51,8 +49,13 @@
     <%= f.number_field :fee, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :fee_memo %>
+    <%= f.text_field :fee_memo, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :limit %>
     <%= f.number_field :limit, class: "form-control" %>
+    <small>定員なしの場合、0に設定してください。</small>
   </div>
   <div class="form-group">
     <%= f.label :desc_short %>
@@ -97,6 +100,3 @@
   <div class="actions">
     <%= f.submit nil,class: "btn btn-primary" %>
   </div>
-<% end %>
-  </div>
-</div>

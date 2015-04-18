@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :show_picture]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :show_picture, :duplicate]
   before_action :authenticate_user!, except: [:root, :show, :show_picture, :index_by_user]
 
   respond_to :html
@@ -23,6 +23,11 @@ class EventsController < ApplicationController
     @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,@user.id).order("opendate DESC")
   end
 
+  def pasts
+    @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,current_user.id).order("opendate DESC")
+    respond_with(@ends)
+  end
+
   def show
     respond_with(@event)
   end
@@ -37,6 +42,13 @@ class EventsController < ApplicationController
     if current_user.id != @event.user_id
       raise ActionController::RoutingError.new('This event is not yours.')
     end
+  end
+
+  def duplicate
+    if current_user.id != @event.user_id
+      raise ActionController::RoutingError.new('This event is not yours.')
+    end
+    #@event.id = nil
   end
 
   def create
@@ -81,7 +93,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible)
+      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible)
       [:picture_main,:picture_1,:picture_2,:picture_3].each do |k|
         p[k] = adjust_image(p[k]) if p[k]
       end
