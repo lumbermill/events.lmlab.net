@@ -13,7 +13,7 @@
       </td>
     </tr>
     <tr>
-      <th><span class="glyphicon glyphicon-user"></span> 主催者</th>
+      <th style="white-space: nowrap"><span class="glyphicon glyphicon-user"></span> 主催者</th>
       <td><%= link_to @event.user.name, events_by_path(@event.user.id) %></td>
     </tr>
     <tr>
@@ -22,11 +22,11 @@
     </tr>
     <tr>
       <th><span class="glyphicon glyphicon-plus"></span> 定員</th>
-      <td><%= @event.limit %>名</td>
+      <td><%= @event.limit_short %></td>
     </tr>
     <tr>
       <th>概要</th>
-      <td><%= @event.desc_short %></td>
+      <td><%= @event.desc_short.gsub("\n","<br/>").html_safe %></td>
     </tr>
     <tr>
       <th>URL</th>
@@ -51,9 +51,11 @@
 </div>
 <div class="row event-detail">
   <div class="col-md-6">
-    <p>
-      <%= @event.desc_long %>
-    </p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= @event.desc_long.gsub("\n","<br/>").html_safe %>
+      </div>
+    </div>
   </div>
   <div class="col-md-3">
     <%= (image_tag events_picture_path(@event.id,"2"), class: "img-rounded") if @event.picture_2 %>
