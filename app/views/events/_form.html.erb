@@ -59,11 +59,25 @@
   </div>
   <div class="form-group">
     <%= f.label :desc_short %>
-    <%= f.text_field :desc_short, class: "form-control" %>
+    <%= f.text_area :desc_short, class: "form-control" %>
+    <small>80文字程度推奨。 <span id="n_desc_short">0</span></small>
+    <script>
+      $("#event_desc_short").keyup(function(e){
+        $("#n_desc_short").text($(e.target).val().length);
+      });
+      $("#n_desc_short").text($(e.target).val().length);
+    </script>
   </div>
   <div class="form-group">
     <%= f.label :desc_long %>
-    <%= f.text_area :desc_long, class: "form-control" %>
+    <%= f.text_area :desc_long, rows: 10, class: "form-control" %>
+    <small>500~1000文字程度推奨。 <span id="n_desc_long">0</span></small>
+    <script>
+      $("#event_desc_long").keyup(function(e){
+        $("#n_desc_long").text($(e.target).val().length);
+      });
+      $("#n_desc_long").text($(e.target).val().length);
+    </script>
   </div>
   <div class="form-group">
     <%= f.label :picture_main %>
@@ -93,9 +107,10 @@
     <%= f.label :url_twitter %>
     <%= f.text_field :url_twitter, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :visible %>
-    <%= f.check_box :visible, class: "form-control" %>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :visible %> Visible
+    </label>
   </div>
   <div class="actions">
     <%= f.submit nil,class: "btn btn-primary" %>
