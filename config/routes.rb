@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  authenticated :user do
+    root to: "events#index", as: "authenticated_root"
+  end
 
   resources :events
   resources :reports
