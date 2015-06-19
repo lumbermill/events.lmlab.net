@@ -53,6 +53,14 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    if params[:event][:id]
+      # from duplicate
+      orig = Event.find(params[:event][:id])
+      @event.picture_main = orig.picture_main
+      @event.picture_1 = orig.picture_1
+      @event.picture_2 = orig.picture_2
+      @event.picture_3 = orig.picture_3
+    end
     @event.save
     respond_with(@event)
   end

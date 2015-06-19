@@ -10,6 +10,33 @@ ja:
         password_confirmation: 'パスワード(確認)'
         current_password: '現在のパスワード'
         remember_me: 'ログイン状態を記憶する'
+      event:
+        title: 'タイトル'
+        opendate: '開催日'
+        opendate_memo: '開催日メモ(時間等)'
+        address_title: '開催場所'
+        address: '住所'
+        postal: '郵便番号'
+        address_embed: '地図URL'
+        fee: '参加費'
+        fee_memo: '参加費メモ'
+        limit: '収容人数'
+        desc_short: '概要'
+        desc_long: '詳細'
+        picture_main: '写真メイン'
+        picture_1: '写真1'
+        picture_2: '写真2'
+        picture_3: '写真3'
+        url: 'URL'
+        url_facebook: 'Facebook'
+        url_twitter: 'Twitter'
+        visible: '表示'
+    select:
+      prompt: 選択してください。
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
   activerecord:
     errors:
       models:
