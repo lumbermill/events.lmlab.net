@@ -1,6 +1,5 @@
 
 ja:
-  hello: "こんにちは。世界。"
   helpers:
     label:
       user:
@@ -44,6 +43,8 @@ ja:
           attributes:
             email:
               taken: 'このアドレスは既に登録されています。'
+            password:
+              blank: 'パスワードが空です。'
             current_password:
               blank: '現在のパスワードを入力してください。'
               invalid: '現在のパスワードが正しくありません。'
