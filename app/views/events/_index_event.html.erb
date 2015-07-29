@@ -11,12 +11,16 @@
   </thead>
   <tbody>
     <% events.each do |event| %>
-    <tr>
+      <% if event.visible %>
+      <tr>
+      <% else %>
+      <tr style="background-color: #eee;">
+      <% end %>
       <td><%= event.opendate_short %></td>
       <td><%= event.address_title %></td>
       <td><%= event.title %></td>
       <td><%= event.fee %></td>
-      <td><%= event.limit %></td>
+      <td><%= event.limit %> <%= event.visible %></td>
       <td><%= link_to '閲覧', event %></td>
       <td><%= link_to '編集', edit_event_path(event) %></td>
       <td><%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' } %></td>

@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   def root
-    @events = Event.where("opendate >= ?",Date.today.to_s).order("opendate").limit(12)
+    @events = Event.where("opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(12)
     respond_with(@events)
   end
 
@@ -19,12 +19,12 @@ class EventsController < ApplicationController
   def index_by_user
     @user = User.find(params[:id])
     raise ActionController::RoutingError.new('User not found.') unless @user
-    @upcomings = Event.where("opendate >= ? AND user_id = ?",Date.today.to_s,@user.id).order("opendate ASC")
-    @ends = Event.where("opendate < ? AND user_id = ?",Date.today.to_s,@user.id).order("opendate DESC")
+    @upcomings = Event.where("opendate >= ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate ASC")
+    @ends = Event.where("opendate < ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate DESC")
   end
 
   def pasts
-    @ends = Event.where("opendate < ?",Date.today.to_s).order("opendate DESC")
+    @ends = Event.where("opendate < ? AND visible = true",Date.today.to_s).order("opendate DESC")
     respond_with(@ends)
   end
 
