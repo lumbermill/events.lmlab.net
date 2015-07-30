@@ -46,15 +46,16 @@
   </div>
   <div class="col-md-6">
     <%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
+    <br/><br/>
     <div class="row">
-      <div class="col-md-2">
-        <%= (image_tag events_picture_path(@event.id,"1"), class: "img-rounded") if @event.picture_1 %>
+      <div class="col-md-4">
+        <%= (link_to (image_tag events_picture_path(@event.id,"1"), class: "img-rounded"), events_picture_path(@event.id,"1")) if @event.picture_1 %>
       </div>
-      <div class="col-md-2">
-        <%= (image_tag events_picture_path(@event.id,"2"), class: "img-rounded") if @event.picture_2 %>
+      <div class="col-md-4">
+        <%= (link_to (image_tag events_picture_path(@event.id,"2"), class: "img-rounded"), events_picture_path(@event.id,"2")) if @event.picture_2 %>
       </div>
-      <div class="col-md-2">
-        <%= (image_tag events_picture_path(@event.id,"3"), class: "img-rounded") if @event.picture_3 %>
+      <div class="col-md-4">
+        <%= (link_to (image_tag events_picture_path(@event.id,"3"), class: "img-rounded"), events_picture_path(@event.id,"3")) if @event.picture_3 %>
       </div>
     </div>
   </div>
