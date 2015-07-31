@@ -2,7 +2,7 @@
 PRETEND=false
 
 ## !! Be careful to use this function. It may overwrite all of contents."
-def deploy(host,env="test",first=false)
+def deploy(host,env="staging",first=false)
   if ! File.exists? "app" then
     puts "Here seems not to be in Rails app. Abort."
     return
@@ -35,10 +35,10 @@ end
 env = ARGV[0] || ""
 init = ARGV[1] == "init"
 puts "Running with RAILS_ENV=#{env}"
-if env == "test"
+if env == "staging"
   deploy("events.t.lmlab.net",env,init)
 elsif env == "production"
   deploy("events.lmlab.net",env,init)
 else
-  puts "USAGE: ./lib/tasks/deploy.rb (test|production) [init]";
+  puts "USAGE: ./lib/tasks/deploy.rb (staging|production) [init]";
 end
