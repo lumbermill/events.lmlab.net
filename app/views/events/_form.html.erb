@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :user_id %>
-    <%= @event.user.name %>
-    <%= f.hidden_field :user_id %>
-  </div>
-  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
@@ -111,8 +106,13 @@
   </div>
   <div class="checkbox">
     <label>
-      <%= f.check_box :visible %> Visible
+      <%= f.check_box :visible %>公開する
     </label>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, "主催者" %>
+    <%= @event.user.name %>
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit nil,class: "btn btn-primary" %>

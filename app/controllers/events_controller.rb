@@ -49,6 +49,7 @@ class EventsController < ApplicationController
       raise ActionController::RoutingError.new('This event is not yours.')
     end
     #@event.id = nil
+    @event.visible = false # Always invisible after duplication.
   end
 
   def create

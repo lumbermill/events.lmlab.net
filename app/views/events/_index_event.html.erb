@@ -6,7 +6,7 @@
       <th>タイトル</th>
       <th>参加費</th>
       <th>定員</th>
-      <th colspan="4"></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,11 +20,11 @@
       <td><%= event.address_title %></td>
       <td><%= event.title %></td>
       <td><%= event.fee %></td>
-      <td><%= event.limit %> <%= event.visible %></td>
-      <td><%= link_to '閲覧', event %></td>
-      <td><%= link_to '編集', edit_event_path(event) %></td>
-      <td><%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
-      <td><%= link_to '複製', dup_event_path(event) %></td>
+      <td><%= event.limit %></td>
+      <td><%= link_to '閲覧', event, class: "btn btn-default" %>
+      <%= link_to '編集', edit_event_path(event), class: "btn btn-default" %>
+      <%= link_to '削除', event, method: :delete, data: { confirm: 'よろしいですか?' }, class: "btn btn-danger" %>
+      <%= link_to '複製', dup_event_path(event), class: "btn btn-default" %></td>
     </tr>
     <% end %>
   </tbody>
