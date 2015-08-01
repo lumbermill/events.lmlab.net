@@ -16,7 +16,7 @@
 					<li><%= link_to "<span class='glyphicon glyphicon-home'></span>".html_safe, events_path %></li>
 				<% else %>
 					<li><%= link_to 'ユーザ登録', new_user_registration_path %></li>
-					<li><%= link_to 'ログイン', events_path %></li>
+					<li><%= link_to 'ログイン', new_user_session_path %></li>
 				<% end %>
 			</ul>
 		</div><!--/.nav-collapse -->
