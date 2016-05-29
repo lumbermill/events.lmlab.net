@@ -5,7 +5,8 @@ class EventsController < ApplicationController
   respond_to :html
 
   def root
-    @events = Event.where("opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(12)
+    @events = Event.where("opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(100)
+    @events = divide(@events,3)
     respond_with(@events)
   end
 
@@ -24,7 +25,8 @@ class EventsController < ApplicationController
   end
 
   def pasts
-    @ends = Event.where("opendate < ? AND visible = true",Date.today.to_s).order("opendate DESC")
+    @ends = Event.where("opendate < ? AND visible = true",Date.today.to_s).order("opendate DESC").limit(100)
+    @ends = divide(@ends,3)
     respond_with(@ends)
   end
 
@@ -87,6 +89,15 @@ class EventsController < ApplicationController
   end
 
   private
+    # 指定した列数に分割
+    def divide(events,n_rows=3)
+      event_rows = Array.new(n_rows) { [] }
+      events.each_with_index do |e,i|
+        event_rows[i % n_rows] << e
+      end
+      event_rows
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
@@ -104,7 +115,12 @@ class EventsController < ApplicationController
     def event_params
       p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible, :host)
       [:picture_main,:picture_1,:picture_2,:picture_3].each do |k|
+        # 大きすぎる画像は小さくする
         p[k] = adjust_image(p[k]) if p[k]
+      end
+      if p[:address_embed].present? && p[:address_embed].start_with?("<iframe ")
+        # iframeタグが貼られていたらsrc属性だけ取り出して保存
+        p[:address_embed] = (p[:address_embed].match /src="(.+)"/)[1]
       end
       return p
     end

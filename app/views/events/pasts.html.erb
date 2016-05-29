@@ -7,9 +7,13 @@
   </div>
 </div>
 <div class="row">
-    <% @ends.each do |event| %>
-      <%= render partial: 'event', locals: {event: event} %>
-    <% end %>
+  <% @ends.each do |col| %>
+    <div class="col-sm-4">
+      <% col.each_with_index do |event,i| %>
+        <%= render partial: 'event', locals: {event: event,index: i} %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="row">
   <div class="col-md-12 text-right">

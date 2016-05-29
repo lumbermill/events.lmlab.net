@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529095337) do
+ActiveRecord::Schema.define(version: 20160529133219) do
 
   create_table "events", force: true do |t|
     t.integer  "user_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160529095337) do
     t.string   "opendate_memo"
     t.string   "postal"
     t.string   "address"
-    t.string   "address_embed"
+    t.string   "address_embed", limit: 2000,     default: "", null: false
     t.integer  "fee"
     t.integer  "limit"
     t.string   "desc_short"
