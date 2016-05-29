@@ -4,8 +4,14 @@
     <p>
       <span class="glyphicon glyphicon-time" title="開催日"></span> <%= event.opendate_short %><br/>
       <span class="glyphicon glyphicon-map-marker" title="場所"></span> <%= event.address_title %><br/>
-      <span class="glyphicon glyphicon-user" title="主催者"></span> <%= link_to event.user.name,events_by_path(event.user) %>
+      <span class="glyphicon glyphicon-user" title="主催者"></span>
+      <% if event.host.present? %>
+        <%= event.host %>
+        <small>(via <%= link_to event.user.name,events_by_path(event.user) %>)</small>
+      <% else %>
+        <%= link_to event.user.name,events_by_path(event.user) %>
+      <% end %>
     </p>
-    <%= image_tag events_picture_path(event.id,"main") %>
+    <%= link_to image_tag(events_picture_path(event.id,"main")), event %>
   </div>
 </div>

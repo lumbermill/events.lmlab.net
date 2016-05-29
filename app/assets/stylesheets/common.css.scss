@@ -1,8 +1,3 @@
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .navbar {
   margin-bottom: 20px;
 }
@@ -12,7 +7,9 @@ body {
 }
 
 footer.footer {
-  margin: auto;
+  border-top: #e7e7e7 1px solid;
+  margin: 20px auto 0 auto;
+  padding: 20px;
   text-align: center;
   clear: both;
 }
@@ -44,4 +41,11 @@ div.event-detail img{
 div.event-detail img.icon{
   width: 24px;
   border-radius: 0;
+}
+
+small.small-alert{
+  display: block;
+  background-color: #fcf8e3;
+  margin: 6px;
+  padding: 6px;
 }
