@@ -8,11 +8,12 @@
       </div>
     </div>
   <% else %>
-    <% @events.each do |col| %>
+    <% @events.each_with_index do |col,i| %>
       <div class="col-sm-4">
-        <% col.each_with_index do |event,i| %>
-          <%= render partial: 'event', locals: {event: event,index: i} %>
+        <% col.each_with_index do |event,j| %>
+          <%= render partial: 'event', locals: {event: event,index: j} %>
         <% end %>
+        <%= render 'ad1' if i == 2 %>
       </div>
     <% end %>
     <div class="col-sm-12 visible-xs"><small>直近の3件だけ表示しています</small></div>
