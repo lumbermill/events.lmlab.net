@@ -1,13 +1,21 @@
 <h1><%= @user.name %> のイベント</h1>
 <h3>近日開催</h3>
 <div class="row">
-  <% @upcomings.each do |event| %>
-    <%= render partial: 'event', locals: {event: event} %>
+  <% @upcomings.each do |col| %>
+    <div class="col-sm-4">
+      <% col.each_with_index do |event,j| %>
+        <%= render partial: 'event', locals: {event: event,index: j} %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 <h3>開催済み</h3>
 <div class="row">
-  <% @ends.each do |event| %>
-    <%= render partial: 'event', locals: {event: event} %>
-    <% end %>
+  <% @ends.each do |col| %>
+    <div class="col-sm-4">
+      <% col.each_with_index do |event,j| %>
+        <%= render partial: 'event', locals: {event: event,index: j} %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

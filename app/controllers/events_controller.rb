@@ -22,6 +22,8 @@ class EventsController < ApplicationController
     raise ActionController::RoutingError.new('User not found.') unless @user
     @upcomings = Event.where("opendate >= ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate ASC")
     @ends = Event.where("opendate < ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate DESC")
+    @upcomings = divide(@upcomings,3)
+    @ends = divide(@ends,3)
   end
 
   def pasts

@@ -67,6 +67,7 @@
         <%= (link_to (image_tag events_picture_path(@event.id,"3"), class: "img-rounded"), events_picture_path(@event.id,"3")) if @event.picture_3 %>
       </div>
     </div>
+    <br/>
     <% if @event.address_embed.present? %>
       <iframe src="<%= @event.address_embed %>" width="100%" height="360px"></iframe>
     <% end %>
