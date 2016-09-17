@@ -1,5 +1,12 @@
+body{
+  background: image-url("hemp-cloth-04.jpg") repeat;
+  /*background: image-url("cork.jpg") repeat;*/
+}
+
 .navbar {
   margin-bottom: 20px;
+  background: image-url("wood-oil-bk.jpg") repeat;
+  border-bottom-color: brown;
 }
 
 .alert {
@@ -7,11 +14,12 @@
 }
 
 footer.footer {
-  border-top: #e7e7e7 1px solid;
+  border-top: brown 1px solid;
   margin: 20px auto 0 auto;
   padding: 20px;
   text-align: center;
   clear: both;
+  background: image-url("wood-oil-bk.jpg") repeat;
 }
 
 footer.footer a{
@@ -21,8 +29,9 @@ footer.footer a{
 div.event{
   background-color: #eee;
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 2px;
   margin-bottom: 30px;
+  box-shadow: #666 3px 3px 3px;
 }
 
 div.event h3{
@@ -48,4 +57,10 @@ small.small-alert{
   background-color: #fcf8e3;
   margin: 6px;
   padding: 6px;
+}
+
+table.event{
+  background-color: #eee;
+  box-shadow: #666 3px 3px 3px;
+  border-radius: 2px;
 }
