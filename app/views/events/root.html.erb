@@ -16,7 +16,7 @@
         <%= render 'ad1' if i == 2 %>
       </div>
     <% end %>
-    <div class="col-sm-12 visible-xs"><small>直近の3件だけ表示しています</small></div>
+    <div class="col-sm-12 visible-xs"><%= link_to 'もっと見る', "#", class: 'btn btn-default' %></div>
   <% end %>
 </div>
 <div class="row">

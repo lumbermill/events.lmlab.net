@@ -1,4 +1,5 @@
 <div class="event <%= "hidden-xs" if index > 0 %>">
+  <%= link_to image_tag(events_picture_path(event.id,"main")), event %>
   <h3><%= link_to event.title, event %></h3>
   <p>
     <span class="glyphicon glyphicon-time" title="開催日"></span> <%= event.opendate_short %><br/>
@@ -11,5 +12,4 @@
       <%= link_to event.user.name,events_by_path(event.user) %>
     <% end %>
   </p>
-  <%= link_to image_tag(events_picture_path(event.id,"main")), event %>
 </div>
