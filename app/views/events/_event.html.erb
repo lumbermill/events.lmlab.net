@@ -1,4 +1,4 @@
-<div class="event <%= "hidden-xs" if index > 0 %>">
+<div class="event <%= "hidden-xs" if !@all && index > 0 %>">
   <%= link_to image_tag(events_picture_path(event.id,"main")), event %>
   <h3><%= link_to event.title, event %></h3>
   <p>

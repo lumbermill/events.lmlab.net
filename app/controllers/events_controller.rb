@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def root
     @events = Event.where("opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(100)
     @events = divide(@events,3)
+    @all = params[:all]
     respond_with(@events)
   end
 
