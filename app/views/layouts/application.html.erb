@@ -6,7 +6,7 @@
     <meta property="og:title" content="<%= @event.title %> - <%= @event.host.present? ? @event.host : @event.user.name %>">
     <meta property="og:site_name" content="LM Events">
     <meta property="og:description" content="<%= @event.desc_short %>">
-    <meta property="og:image" content="<%= events_picture_path(@event.id,"main") %>">
+    <meta property="og:image" content="<%= events_picture_url(@event.id,"main") %>">
   <% else %>
     <title>LM Events</title>
     <meta property="og:site_name" content="LM Events">
