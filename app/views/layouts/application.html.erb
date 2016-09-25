@@ -2,9 +2,15 @@
 <html>
 <head>
   <% if isEventPage? %>
-    <title><%= @event.title %> :<%= @event.user.name %></title>
+    <title><%= @event.title %> - <%= @event.host.present? ? @event.host : @event.user.name %></title>
+    <meta property="og:title" content="<%= @event.title %> - <%= @event.host.present? ? @event.host : @event.user.name %>">
+    <meta property="og:site_name" content="LM Events">
+    <meta property="og:description" content="<%= @event.desc_short %>">
+    <meta property="og:image" content="<%= events_picture_path(@event.id,"main") %>">
   <% else %>
-    <title>LumberMill's Events</title>
+    <title>LM Events</title>
+    <meta property="og:site_name" content="LM Events">
+    <meta property="og:description" content="">
   <% end %>
   <%= javascript_include_tag 'application' %>
   <!-- Latest compiled and minified CSS -->
