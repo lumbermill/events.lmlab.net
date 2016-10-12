@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529133219) do
+ActiveRecord::Schema.define(version: 20161012131101) do
+
+  create_table "entries", force: true do |t|
+    t.integer  "event_id"
+    t.string   "email"
+    t.string   "name"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +47,9 @@ ActiveRecord::Schema.define(version: 20160529133219) do
     t.string   "address_title"
     t.string   "fee_memo"
     t.string   "host",                           default: "", null: false
+    t.boolean  "has_entry"
+    t.string   "address_memo"
+    t.string   "address_url"
   end
 
   create_table "reports", force: true do |t|

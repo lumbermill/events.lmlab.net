@@ -4,13 +4,17 @@
   <% if isEventPage? %>
     <title><%= @event.title %> - <%= @event.host.present? ? @event.host : @event.user.name %></title>
     <meta property="og:title" content="<%= @event.title %> - <%= @event.host.present? ? @event.host : @event.user.name %>">
-    <meta property="og:site_name" content="LM Events">
+    <meta property="og:site_name" content="360 Board">
     <meta property="og:description" content="<%= @event.desc_short %>">
+    <meta name="description" content="<%= @event.desc_short %>"/>
     <meta property="og:image" content="<%= events_picture_url(@event.id,"main") %>">
+    <meta name="keywords" content="" />
   <% else %>
-    <title>LM Events</title>
-    <meta property="og:site_name" content="LM Events">
+    <title>360 Board</title>
+    <meta property="og:site_name" content="360 Board">
     <meta property="og:description" content="">
+    <meta name="description" content=""/>
+    <meta name="keywords" content="360,イベント情報,宮崎,西臼杵,高千穂" />
   <% end %>
   <meta property="og:url" content="<%= request.url %>" />
   <%= javascript_include_tag 'application' %>
@@ -18,8 +22,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <meta name="description" content=""/>
-  <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>

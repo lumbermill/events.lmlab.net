@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  has_many :entries
   validates :title, presence: true
   validates :opendate, presence: true
   validates :address_title, presence: true

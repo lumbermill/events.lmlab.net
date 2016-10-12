@@ -52,6 +52,7 @@
         </td>
       </tr>
     </table>
+    <p><%= link_to "<span class='glyphicon glyphicon-edit'></span> 申込み".html_safe, new_entry_path(event_id: @event.id), class: "btn btn-success btn-lg btn-block" %></p>
   </div>
   <div class="col-md-6">
     <%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
