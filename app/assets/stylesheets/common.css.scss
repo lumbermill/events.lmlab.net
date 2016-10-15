@@ -68,3 +68,11 @@ table.event{
   box-shadow: #666 3px 3px 3px;
   border-radius: 2px;
 }
+
+// root下の説明文
+div.paper{
+  margin-top: 20px;
+  background-color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+  color: #333;
+}
