@@ -1,0 +1,40 @@
+<h1><%= @entry.event.title %></h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="alert alert-info">
+      参加人数を把握するための簡易的なものですが、主催者側からメールが返信されることもあります。
+      申込後、自動返信メールが正常に届いていることをご確認ください。
+    </div>
+    <%= form_for(@entry) do |f| %>
+    <% if @entry.errors.any? %>
+      <div id="error_explanation" class="alert alert-warning">
+        <p><%= pluralize(@entry.errors.count, "個") %>のエラー:</p>
+
+        <ul>
+        <% @entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.hidden_field :event_id %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :message %>
+      <%= f.text_field :message, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil,class: "btn btn-primary" %>
+      <%= link_to 'イベント情報に戻る', event_path(@entry.event_id), class: 'btn btn-default' %>
+    </div>
+    <% end %>
+  </div>
+</div>

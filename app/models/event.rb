@@ -20,4 +20,19 @@ class Event < ActiveRecord::Base
     return "なし" if limit == nil || limit == 0
     return "#{limit} 名"
   end
+
+  def fee_short
+    return "無料" if fee.nil? || fee <= 0
+    return "#{fee} 円"
+  end
+
+  def ended?
+    opendate <= Date.today
+  end
+
+  def full?
+    return false if limit.nil? || limit <= 0
+    return entries.active.count >= limit
+  end
+
 end

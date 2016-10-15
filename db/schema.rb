@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161012131101) do
     t.string   "email"
     t.string   "name"
     t.string   "message"
+    t.boolean  "active",     default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

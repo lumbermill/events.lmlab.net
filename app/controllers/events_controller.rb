@@ -116,7 +116,11 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo, :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit, :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3, :url, :url_facebook, :url_twitter, :visible, :host)
+      p = params.require(:event).permit(:user_id, :title, :opendate, :opendate_memo,
+       :address_title, :address, :postal, :address_embed, :fee, :fee_memo, :limit,
+        :desc_short, :desc_long, :picture_main, :picture_1, :picture_2, :picture_3,
+         :url, :url_facebook, :url_twitter, :visible, :host, :has_entry,
+         :address_memo, :address_url)
       [:picture_main,:picture_1,:picture_2,:picture_3].each do |k|
         # 大きすぎる画像は小さくする
         p[k] = adjust_image(p[k]) if p[k]

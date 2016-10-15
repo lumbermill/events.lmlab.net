@@ -5,6 +5,7 @@ class CreateEntries < ActiveRecord::Migration
       t.string :email
       t.string :name
       t.string :message
+      t.boolean :active, null: false, default: true
 
       t.timestamps
     end

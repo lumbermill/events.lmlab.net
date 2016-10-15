@@ -1,0 +1,52 @@
+<h1><%= @event.title %></h1>
+<div class="row">
+  <div class="col-md-12">
+<% if @entries.count == 0 %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    申込はまだありません。
+  </div>
+</div>
+<% else %>
+<div class="alert alert-info"><%= @entries.active.count %> 件の申込があります。</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>氏名</th>
+      <th>メール</th>
+      <th>メッセージ</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.name %></td>
+    <td><%= entry.email %></td>
+    <td><%= entry.message %></td>
+    <td><%  if entry.active %><span class='glyphicon glyphicon-ok'></span><% end %></td>
+    <td><%  if entry.active %>
+      <button class="btn btn-sm btn-warning" onclick="toggle(<%= entry.id %>)">無効にする</button>
+        <% else %>
+      <button class="btn btn-sm btn-success" onclick="toggle(<%= entry.id %>)">有効に戻す</button>
+        <% end %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+<% end %>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to '一覧に戻る', events_path, class: "btn btn-default" %>
+  </div>
+</div>
+<script>
+function toggle(id){
+  $.get('entries_toggle',{"id":id},function(d){
+    location.reload();
+  });
+}
+</script>

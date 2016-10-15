@@ -58,3 +58,9 @@ ja:
               blank: '日時を設定してください。'
             address_title:
               blank: '場所を入力してください。'
+        entry:
+          attributes:
+            email:
+              invalid: '有効なメールアドレスを入力してください。'
+            name:
+              blank: 'お名前を入力してください。'

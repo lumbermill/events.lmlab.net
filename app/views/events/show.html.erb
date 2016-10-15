@@ -10,7 +10,11 @@
     <table class="table event">
       <tr>
         <th><span class="glyphicon glyphicon-time"></span> 日時</th>
-        <td><%= @event.opendate_short %></td>
+        <td><%= @event.opendate_short %>
+          <% if @event.ended? %>
+          <small class="small-alert">このイベントは開催済みです。</small>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th><span class="glyphicon glyphicon-map-marker"></span> 場所</th>
@@ -33,7 +37,7 @@
       </tr>
       <tr>
         <th><span class="glyphicon glyphicon-yen"></span> 参加費</th>
-        <td><%= @event.fee %>円<br/><small><%= @event.fee_memo %></small></td>
+        <td><%= @event.fee_short %><br/><small><%= @event.fee_memo %></small></td>
       </tr>
       <tr>
         <th><span class="glyphicon glyphicon-plus"></span> 定員</th>
@@ -52,7 +56,16 @@
         </td>
       </tr>
     </table>
-    <p><%= link_to "<span class='glyphicon glyphicon-edit'></span> 申込み".html_safe, new_entry_path(event_id: @event.id), class: "btn btn-success btn-lg btn-block" %></p>
+    <% if session[:entries] && session[:entries][@event.id.to_s] %>
+      <p><button class="btn btn-lg btn-block disabled">申込み済みです</button></p>
+      <p>キャンセルは、直接主催者にお問い合わせください。</p>
+    <% elsif @event.has_entry && !@event.ended? %>
+      <% if @event.full? %>
+        <p><button class="btn btn-lg btn-block disabled">定員に達しました</button></p>
+      <% else %>
+        <p><%= link_to "<span class='glyphicon glyphicon-edit'></span> 申込み".html_safe, new_entry_path(event_id: @event.id), class: "btn btn-success btn-lg btn-block" %></p>
+      <% end %>
+    <% end %>
   </div>
   <div class="col-md-6">
     <%= image_tag events_picture_path(@event.id,"main"), class: "img-rounded" %>
