@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: "omniauth_callbacks",
     registrations: "users/registrations"
   }
-#  authenticated :user do
-#    root to: "events#index", as: "authenticated_root"
-#  end
+  authenticated :user do
+   #root to: "events#index", as: "authenticated_root"
+   get 'users' => 'users#index'
+   get 'sign-in-as' => 'users#sign_in_as'
+  end
 
   resources :events
   resources :reports

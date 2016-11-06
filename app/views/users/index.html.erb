@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>メール</th>
+      <th>イベント数</th>
+      <th>ログイン日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <% unless user.id == 1 %>
+        <td><%= link_to user.email, sign_in_as_path(id: user.id) %></td>
+        <% else %>
+        <td><strong><%= user.email %></strong></td>
+        <% end %>
+        <td><%= user.events.count %></td>
+        <td><%= user.current_sign_in_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

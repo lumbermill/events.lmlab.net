@@ -4,6 +4,7 @@
 <p>
   <%= link_to '新しいイベントを登録する', new_event_path, class: "btn btn-primary" %>
   <%= link_to 'ユーザ情報を変更する', edit_user_registration_path, class: "btn btn-default" %>
+  <%= link_to 'ユーザ一覧', users_path, class: "btn btn-default" if current_user.admin? %>
 </p>
 <h3>近日開催</h3>
 <%= render partial: "index_event", locals: {events: @upcomings} %>
