@@ -6,7 +6,7 @@ class EntryMailer < ActionMailer::Base
     @name = entry.name
     @event = entry.event
     from = @event.user.email
-    mail to: entry.email,from: from, subject: "[360 board]お申込み確認"
+    mail to: entry.email,from: from, subject: "[360 board]お申込み受付"
   end
 
   def notify(entry)
