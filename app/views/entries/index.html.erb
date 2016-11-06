@@ -15,6 +15,7 @@
       <th>氏名</th>
       <th>メール</th>
       <th>メッセージ</th>
+      <th>登録日時</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
     <td><%= entry.name %></td>
     <td><%= entry.email %></td>
     <td><%= entry.message %></td>
+    <td><%= entry.created_at %></td>
     <td><%  if entry.active %><span class='glyphicon glyphicon-ok'></span><% end %></td>
     <td><%  if entry.active %>
       <button class="btn btn-sm btn-warning" onclick="toggle(<%= entry.id %>)">無効にする</button>

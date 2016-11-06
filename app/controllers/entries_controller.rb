@@ -15,6 +15,8 @@ class EntriesController < ApplicationController
         session[:entries] = {}
       end
       session[:entries][@entry.event_id.to_s] = DateTime.now
+      EntryMailer.confirm(@entry).deliver_later
+      EntryMailer.notify(@entry).deliver_later
       redirect_to controller: 'events', action: 'show', id: @entry.event_id
     else
       render :new
