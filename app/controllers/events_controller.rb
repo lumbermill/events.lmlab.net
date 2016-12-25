@@ -5,7 +5,9 @@ class EventsController < ApplicationController
   respond_to :html
 
   def root
-    @events = Event.where("opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(100)
+    cond = build_condition(params[:q])
+    logger.debug(cond)
+    @events = Event.where(cond+"opendate >= ? AND visible = true",Date.today.to_s).order("opendate").limit(100)
     @events = divide(@events,3)
     @all = params[:all]
     respond_with(@events)
@@ -113,6 +115,25 @@ class EventsController < ApplicationController
       else
         return i.to_blob
       end
+    end
+
+    def build_condition(q)
+      return "" if q.blank?
+      qs = q.gsub(/['"%]/,"").split(/ +/)
+      cs = []
+      qs.each do |q1|
+        if q1.include? ":"
+          k,v = q1.split(":")
+          if k == "date"
+            d = Date.parse(v).strftime("%Y-%m-%d")
+            cs += ["opendate = '#{d}'"]
+          end
+        else
+          # キーワードだけの場合は、タイトルと住所を検索
+          cs += ["(title like '%#{q1}%' or address like '%#{q1}%')"]
+        end
+      end
+      return "("+cs.join(" and ")+") and "
     end
 
     def event_params
