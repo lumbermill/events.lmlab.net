@@ -21,12 +21,16 @@ class EventsController < ApplicationController
   end
 
   def index_by_user
+    title = params[:title] || ""
+    title.gsub!(/'%/,"")
     @user = User.find(params[:id])
     raise ActionController::RoutingError.new('User not found.') unless @user
-    @upcomings = Event.where("opendate >= ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate ASC")
+    @upcomings = Event.where("opendate >= ? AND user_id = ? AND visible = true AND title like '#{title}%'",Date.today.to_s,@user.id).order("opendate ASC")
     @ends = Event.where("opendate < ? AND user_id = ? AND visible = true",Date.today.to_s,@user.id).order("opendate DESC")
-    @upcomings = divide(@upcomings,3)
-    @ends = divide(@ends,3)
+    if request.format == "html"
+      @upcomings = divide(@upcomings,3)
+      @ends = divide(@ends,3)
+    end
   end
 
   def pasts

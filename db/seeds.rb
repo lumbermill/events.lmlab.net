@@ -56,7 +56,7 @@ Event.create(title:'第5回英語勉強虫',opendate:'2015-02-03',opendate_memo:
   picture_1: File.read(p1), picture_2: File.read(p2), picture_3: File.read(p3),
   desc_long:desc_long,url:'http://www.englishworm.com',visible:true,user:user)
 
-Event.create(title:'第6回英語勉強虫',opendate:'2015-04-01',opendate_memo:'19:00~23:00 (LO 22:30)',
+Event.create(title:'第6回英語勉強虫',opendate: Date.today ,opendate_memo:'19:00~23:00 (LO 22:30)',
   address_title: '週間マガリ', fee_memo: '1ドリンク+おつまみ',
   postal:'',address:'大阪府大阪市天神橋 1 丁目 11-13 2F',address_embed:'http://goo.gl/maps/Yh28A',
   fee:1000,limit:0,desc_short:desc_short,
@@ -64,7 +64,7 @@ Event.create(title:'第6回英語勉強虫',opendate:'2015-04-01',opendate_memo:
   picture_1: File.read(p1), picture_2: File.read(p2), picture_3: File.read(p3),
   desc_long:desc_long,url:'http://www.englishworm.com',visible:true,user:user)
 
-Event.create(title:'第7回英語勉強虫',opendate:'2015-05-12',opendate_memo:'19:00~23:00 (LO 22:30)',
+Event.create(title:'第7回英語勉強虫',opendate: (Date.today + 1),opendate_memo:'19:00~23:00 (LO 22:30)',
   address_title: '週間マガリ', fee_memo: '1ドリンク+おつまみ',
   postal:'',address:'大阪府大阪市天神橋 1 丁目 11-13 2F',address_embed:'http://goo.gl/maps/Yh28A',
   fee:1000,limit:0,desc_short:desc_short,

@@ -9,7 +9,7 @@
       <%= event.host %>
       <small>(via <%= link_to event.user.name,events_by_path(event.user) %>)</small>
     <% else %>
-      <%= link_to event.user.name,events_by_path(event.user) %>
+      <%= link_to(event.user.name,events_by_path(event.user)) if event.user %>
     <% end %>
   </p>
 </div>
