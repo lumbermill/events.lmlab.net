@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
   end
 
   def ended?
-    opendate <= Date.today
+    opendate < Date.today
   end
 
   def full?
