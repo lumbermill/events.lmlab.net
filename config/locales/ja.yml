@@ -14,6 +14,8 @@ ja:
         opendate: '開催日'
         opendate_memo: '開催日メモ(時間等)'
         address_title: '開催場所'
+        address_url: '開催場所URL'
+        address_memo: '開催場所メモ'
         address: '住所'
         postal: '郵便番号'
         address_embed: '地図URL'

@@ -28,12 +28,20 @@
     <%= f.text_field :address_title, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :address_url %>
+    <%= f.text_field :address_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :address %>
     <%= f.text_field :address, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :postal %>
     <%= f.text_field :postal, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address_memo %>
+    <%= f.text_field :address_memo, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :address_embed %>

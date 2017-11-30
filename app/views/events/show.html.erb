@@ -18,8 +18,11 @@
       </tr>
       <tr>
         <th><span class="glyphicon glyphicon-map-marker"></span> 場所</th>
-        <td><%= @event.address_title %><br/>
+        <td><%= @event.address_title_with_url %><br/>
         <small><%= @event.postal %> <%= @event.address %></small>
+        <% if @event.address_memo %>
+          <br/><small><%= @event.address_memo %></small>
+        <% end %>
         </td>
       </tr>
       <tr>

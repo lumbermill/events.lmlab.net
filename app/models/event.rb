@@ -35,4 +35,13 @@ class Event < ActiveRecord::Base
     return entries.active.count >= limit
   end
 
+  def address_title_with_url
+    return address_title unless address_url
+    if address_url.start_with? "http"
+      u = address_url
+    else
+      u = "https://places.lmlab.net/#{address_url}/access"
+    end
+    return "<a href='#{u}' target='_blank'>#{address_title}</a>".html_safe
+  end
 end
