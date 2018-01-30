@@ -38,9 +38,9 @@ gem 'capistrano-rails', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rmagick', '~> 2.13.4'
+gem 'rmagick', '~> 2.16'
 gem 'devise', '~> 3.4.1'
-gem 'omniauth', '~> 1.2.2'
+gem 'omniauth', '~> 1.3.2'
 gem 'omniauth-facebook', '~> 2.0.0'
 # Didn't work!!
 # gem 'less-rails', '~> 2.6.0'
