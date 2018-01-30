@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.10.1'
 
 set :application, 'events.lmlab.net'
 set :repo_url, 'https://github.com/yosei/events.lmlab.net.git'
