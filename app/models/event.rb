@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
   end
 
   def address_title_with_url
-    return address_title unless address_url
+    return address_title if address_url.blank?
     if address_url.start_with? "http"
       u = address_url
     else
