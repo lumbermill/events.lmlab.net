@@ -50,6 +50,16 @@
     <% if alert %>
     <p class="alert alert-warning"><%= alert %></p>
     <% end %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-danger" role="alert">
+          勉強会の開催情報は新しいサイト(
+          <%= link_to 'dojo.lmlab.net', "https://dojo.lmlab.net", class: 'alert-link' %>
+          )に移行しました。今後の開催予定の確認・お申込は新サイトからお願い致します。
+          2018.05.03
+        </div>
+      </div>
+    </div>
     <%= yield %>
     <%= render 'layouts/google_ad' %>
   </div>

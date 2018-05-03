@@ -13,50 +13,50 @@
 
 ActiveRecord::Schema.define(version: 20161012131101) do
 
-  create_table "entries", force: true do |t|
-    t.integer  "event_id"
-    t.string   "email"
-    t.string   "name"
-    t.string   "message"
-    t.boolean  "active",     default: true, null: false
+  create_table "entries", force: :cascade do |t|
+    t.integer  "event_id",   limit: 4
+    t.string   "email",      limit: 255
+    t.string   "name",       limit: 255
+    t.string   "message",    limit: 255
+    t.boolean  "active",                 default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "events", force: true do |t|
-    t.integer  "user_id"
-    t.string   "title"
+  create_table "events", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.string   "title",         limit: 255
     t.date     "opendate"
-    t.string   "opendate_memo"
-    t.string   "postal"
-    t.string   "address"
+    t.string   "opendate_memo", limit: 255
+    t.string   "postal",        limit: 255
+    t.string   "address",       limit: 255
     t.string   "address_embed", limit: 2000,     default: "", null: false
-    t.integer  "fee"
-    t.integer  "limit"
-    t.string   "desc_short"
-    t.text     "desc_long"
+    t.integer  "fee",           limit: 4
+    t.integer  "limit",         limit: 4
+    t.string   "desc_short",    limit: 255
+    t.text     "desc_long",     limit: 65535
     t.binary   "picture_main",  limit: 16777215
     t.binary   "picture_1",     limit: 16777215
     t.binary   "picture_2",     limit: 16777215
     t.binary   "picture_3",     limit: 16777215
-    t.string   "url"
-    t.string   "url_facebook"
-    t.string   "url_twitter"
+    t.string   "url",           limit: 255
+    t.string   "url_facebook",  limit: 255
+    t.string   "url_twitter",   limit: 255
     t.boolean  "visible"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "address_title"
-    t.string   "fee_memo"
-    t.string   "host",                           default: "", null: false
+    t.string   "address_title", limit: 255
+    t.string   "fee_memo",      limit: 255
+    t.string   "host",          limit: 255,      default: "", null: false
     t.boolean  "has_entry"
-    t.string   "address_memo"
-    t.string   "address_url"
+    t.string   "address_memo",  limit: 255
+    t.string   "address_url",   limit: 255
   end
 
-  create_table "reports", force: true do |t|
-    t.integer  "event_id"
-    t.string   "short_desc"
-    t.text     "long_desc"
+  create_table "reports", force: :cascade do |t|
+    t.integer  "event_id",   limit: 4
+    t.string   "short_desc", limit: 255
+    t.text     "long_desc",  limit: 65535
     t.binary   "picture_1",  limit: 16777215
     t.binary   "picture_2",  limit: 16777215
     t.binary   "picture_3",  limit: 16777215
@@ -65,27 +65,27 @@ ActiveRecord::Schema.define(version: 20161012131101) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                                   default: "", null: false
-    t.string   "encrypted_password",                      default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255,      default: "", null: false
+    t.string   "encrypted_password",     limit: 255,      default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                           default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "name"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "name",                   limit: 255
     t.binary   "picture",                limit: 16777215
-    t.text     "desc"
-    t.string   "url"
-    t.string   "id_facebook"
-    t.string   "id_twitter"
+    t.text     "desc",                   limit: 65535
+    t.string   "url",                    limit: 255
+    t.string   "id_facebook",            limit: 255
+    t.string   "id_twitter",             limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
