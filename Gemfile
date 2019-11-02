@@ -39,7 +39,7 @@ gem 'capistrano-rails', group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rmagick', '~> 2.16'
-gem 'devise', '~> 3.4.1'
+gem 'devise', '~> 4.7.1'
 gem 'omniauth', '~> 1.3.2'
 gem 'omniauth-facebook', '~> 2.0.0'
 # Didn't work!!
